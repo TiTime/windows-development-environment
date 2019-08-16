@@ -1,9 +1,8 @@
 #-------------------------------------------------------------------------------#
 #                                                                               #
-# This script installs all the stuff I need to develop the things I develop.    #
+# This script installs all the stuff for a dev environment.                     #
 # Run PowerShell with admin priveleges, type `env-windows`, and go make coffee. #
 #                                                                               #
-#                                                                        -James #
 #                                                                               #
 #-------------------------------------------------------------------------------#
 
