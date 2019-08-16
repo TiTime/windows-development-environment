@@ -7,6 +7,24 @@
 #-------------------------------------------------------------------------------#
 
 #
+# Configure Windows Settings
+#
+
+# Navigate registry
+Push-Location
+Set-Location HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+
+# Show file extensions
+Set-ItemProperty . HideFileExt "0"
+# Show hidden files
+Set-ItemProperty . Hidden "1"
+
+Pop-Location
+
+# Force Windows Explorer restart so settings take effect
+Stop-Process -processName: Explorer -force
+
+#
 # Many of the tools have dependencies to the Windows PATH environment variables. 
 # PowerShell does not automatically pick up changes to the PATH. Therefore this simple helper-function:
 #
