@@ -11,7 +11,7 @@
 # Functions
 #
 
-function Update-Environment-Path
+function RefreshEnvironmentPath
 {
     $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") `
         + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
@@ -21,10 +21,10 @@ function Update-Environment-Path
 # Package Managers
 #
 
-# Choco
+# Chocolatey
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 Invoke-WebRequest https://chocolatey.org/install.ps1 -UseBasicParsing | iex
-Update-Environment-Path
+RefreshEnvironmentPath
 
 #
 # Git
