@@ -7,7 +7,8 @@
 #-------------------------------------------------------------------------------#
 
 #
-# Functions
+# Many of the tools have dependencies to the Windows PATH environment variables. 
+# PowerShell does not automatically pick up changes to the PATH. Therefore this simple helper-function:
 #
 
 function RefreshEnvironmentPath
@@ -17,10 +18,9 @@ function RefreshEnvironmentPath
 }
 
 #
-# Package Managers
+#  Install Package Managers Chocolatey 
 #
 
-# Chocolatey
 if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) { Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs; exit }
 Invoke-WebRequest https://chocolatey.org/install.ps1 -UseBasicParsing | iex
 RefreshEnvironmentPath
